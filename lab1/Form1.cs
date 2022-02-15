@@ -15,6 +15,7 @@ namespace lab1
         const string NO_INFO = "00000000000000000000";
         public Form1()
         {
+            Calculator.FirstArg = null;
             InitializeComponent();
         }
 
@@ -41,16 +42,35 @@ namespace lab1
             Calculator.FirstArg = textBox.Text;
             Calculator.Operation = Operations.and;
             textBox.Text = NO_INFO;
+            pictureBox1.Image = Image.FromFile(@"D:\вуз\4 сем\OOP_4_sem\lab2\paimon\imgonline-com-ua-Resize-zkzjMJc7rwm7l5q.jpg");
         }
 
         private void GO_button_Click(object sender, EventArgs e)
         {
-            Calculator.SecondArg = textBox.Text;
-            textBox.Text = Calculator.GetResult();
-
-            if (!binary_radioButton.Checked)
+            try
             {
-                blockAll();
+                if (Calculator.FirstArg != null && Calculator.Operation != Operations.not)
+                {
+                    pictureBox1.Image = Image.FromFile(@"D:\вуз\4 сем\OOP_4_sem\lab2\paimon\6.jpg");    
+                }
+                else
+                {
+                    throw new Exception("YOU FORGOT TO SELECT AN OPERATION");
+                }
+
+                Calculator.SecondArg = textBox.Text;
+                textBox.Text = Calculator.GetResult();
+
+                if (!binary_radioButton.Checked)
+                {
+                    blockAll();
+                }
+                Calculator.Operation = Operations.not;
+            }
+            catch(Exception ex)
+            {
+                pictureBox1.Image = Image.FromFile(@"D:\вуз\4 сем\OOP_4_sem\lab2\paimon\3.jpg");
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -59,10 +79,12 @@ namespace lab1
             Calculator.FirstArg = textBox.Text;
             Calculator.Operation = Operations.or;
             textBox.Text = NO_INFO;
+            pictureBox1.Image = Image.FromFile(@"D:\вуз\4 сем\OOP_4_sem\lab2\paimon\imgonline-com-ua-Resize-zkzjMJc7rwm7l5q.jpg");
         }
 
         private void NOT_button_Click(object sender, EventArgs e)
         {
+            pictureBox1.Image = Image.FromFile(@"D:\вуз\4 сем\OOP_4_sem\lab2\paimon\6.jpg");
             Calculator.FirstArg = textBox.Text;
             Calculator.Operation = Operations.not;
             textBox.Text = Calculator.GetResult();
@@ -84,6 +106,8 @@ namespace lab1
             NOT_button.Enabled = true;
             OR_button.Enabled = true;
             GO_button.Enabled = true;
+            pictureBox1.Image = Image.FromFile(@"D:\вуз\4 сем\OOP_4_sem\lab2\paimon\1.jpg");
+            Calculator.FirstArg = null;
         }
 
         private void binary_radioButton_CheckedChanged(object sender, EventArgs e)

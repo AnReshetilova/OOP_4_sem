@@ -43,8 +43,10 @@ namespace lab1
             this.decimal_radioButton = new System.Windows.Forms.RadioButton();
             this.octal_radioButton = new System.Windows.Forms.RadioButton();
             this.binary_radioButton = new System.Windows.Forms.RadioButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.CALC_groupBox.SuspendLayout();
             this.style_groupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // CALC_groupBox
@@ -205,20 +207,34 @@ namespace lab1
             this.binary_radioButton.UseVisualStyleBackColor = true;
             this.binary_radioButton.CheckedChanged += new System.EventHandler(this.binary_radioButton_CheckedChanged);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Image = global::lab1.Properties.Resources._1;
+            this.pictureBox1.Location = new System.Drawing.Point(486, 26);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(150, 166);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 353);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.style_groupBox);
             this.Controls.Add(this.GO_button);
             this.Controls.Add(this.CALC_groupBox);
+            this.MaximumSize = new System.Drawing.Size(684, 400);
+            this.MinimumSize = new System.Drawing.Size(684, 400);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Paimon\'s calculator";
             this.CALC_groupBox.ResumeLayout(false);
             this.CALC_groupBox.PerformLayout();
             this.style_groupBox.ResumeLayout(false);
             this.style_groupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -239,6 +255,7 @@ namespace lab1
         private System.Windows.Forms.RadioButton decimal_radioButton;
         private System.Windows.Forms.RadioButton octal_radioButton;
         private System.Windows.Forms.RadioButton binary_radioButton;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
