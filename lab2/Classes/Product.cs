@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 
 namespace lab2.Classes
 {
@@ -15,6 +17,7 @@ namespace lab2.Classes
         public string Name { get; set; }
         public int Number { get; set; }
         public int Size { get; set; }
+        [Range(0, 100)]
         public int Weight { get; set; }
         public string Type { get; set; }
         public int Count { get; set; }
@@ -63,5 +66,10 @@ namespace lab2.Classes
         {
             return $"{Name} {Manufacturer.Organisation}";
         }
+    }
+
+    public class ProductDBContext : DbContext
+    {
+        public DbSet<Product> Products { get; set; }
     }
 }

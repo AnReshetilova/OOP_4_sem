@@ -32,7 +32,6 @@ namespace lab2
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.NAME_textBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.NUMBER_maskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.SIZE_maskedTextBox = new System.Windows.Forms.MaskedTextBox();
@@ -50,6 +49,7 @@ namespace lab2
             this.label10 = new System.Windows.Forms.Label();
             this.ADD_button = new System.Windows.Forms.Button();
             this.COUNT_numericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.NUMBER_maskedTextBox = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.COUNT_numericUpDown)).BeginInit();
             this.SuspendLayout();
@@ -79,16 +79,6 @@ namespace lab2
             this.label1.Size = new System.Drawing.Size(66, 25);
             this.label1.TabIndex = 5;
             this.label1.Text = "NAME";
-            // 
-            // NUMBER_maskedTextBox
-            // 
-            this.NUMBER_maskedTextBox.Location = new System.Drawing.Point(147, 105);
-            this.NUMBER_maskedTextBox.Mask = "00000";
-            this.NUMBER_maskedTextBox.Name = "NUMBER_maskedTextBox";
-            this.NUMBER_maskedTextBox.Size = new System.Drawing.Size(65, 27);
-            this.NUMBER_maskedTextBox.TabIndex = 7;
-            this.NUMBER_maskedTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.NUMBER_maskedTextBox.ValidatingType = typeof(int);
             // 
             // label2
             // 
@@ -265,11 +255,22 @@ namespace lab2
             this.COUNT_numericUpDown.Size = new System.Drawing.Size(63, 27);
             this.COUNT_numericUpDown.TabIndex = 25;
             // 
+            // NUMBER_maskedTextBox
+            // 
+            this.NUMBER_maskedTextBox.Location = new System.Drawing.Point(149, 105);
+            this.NUMBER_maskedTextBox.Mask = "00000";
+            this.NUMBER_maskedTextBox.Name = "NUMBER_maskedTextBox";
+            this.NUMBER_maskedTextBox.Size = new System.Drawing.Size(63, 27);
+            this.NUMBER_maskedTextBox.TabIndex = 26;
+            this.NUMBER_maskedTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NUMBER_maskedTextBox.ValidatingType = typeof(int);
+            // 
             // PRODUCT_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(314, 418);
+            this.Controls.Add(this.NUMBER_maskedTextBox);
             this.Controls.Add(this.COUNT_numericUpDown);
             this.Controls.Add(this.ADD_button);
             this.Controls.Add(this.ADD_STOREKEEPlabel);
@@ -287,7 +288,6 @@ namespace lab2
             this.Controls.Add(this.SIZE_maskedTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.NUMBER_maskedTextBox);
             this.Controls.Add(this.NAME_textBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -305,7 +305,6 @@ namespace lab2
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox NAME_textBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox NUMBER_maskedTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MaskedTextBox SIZE_maskedTextBox;
@@ -323,5 +322,6 @@ namespace lab2
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button ADD_button;
         private System.Windows.Forms.NumericUpDown COUNT_numericUpDown;
+        private System.Windows.Forms.MaskedTextBox NUMBER_maskedTextBox;
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using lab2.Classes;
+using System.ComponentModel.DataAnnotations;
 
 namespace lab2
 {
@@ -59,7 +60,20 @@ namespace lab2
                 Manufacturer manufacturer = Manufacturer.FindManufacturer(MANUFACTURER_comboBox.SelectedItem.ToString());
                 Storekeeper storekeeper = Storekeeper.FindStorekeeper(STOREKEEPER_comboBox.SelectedItem.ToString());
                 Product product = new Product(NAME_textBox.Text, Convert.ToInt32(NUMBER_maskedTextBox.Text), Convert.ToInt32(SIZE_maskedTextBox.Text), Convert.ToInt32(WEIGTH_maskedTextBox.Text), TYPE_comboBox.SelectedItem.ToString(), (int)COUNT_numericUpDown.Value, manufacturer, storekeeper);
-                Product.Products.Add(product);
+
+                ValidationContext context = new ValidationContext(product, null, null);
+                IList<ValidationResult> errors = new List<ValidationResult>();
+
+                if (!Validator.TryValidateObject(product, context, errors, true))
+                {
+                    foreach (ValidationResult result in errors)
+                        MessageBox.Show(result.ErrorMessage);
+                }
+                else
+                {
+                    MessageBox.Show("Validated");
+                    Product.Products.Add(product);
+                }
 
                 foreach (Control c in Controls)
                 {
