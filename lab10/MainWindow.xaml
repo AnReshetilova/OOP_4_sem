@@ -1,0 +1,58 @@
+﻿<Window x:Class="lab10.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab10"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="127*"/>
+            <ColumnDefinition Width="386*"/>
+            <ColumnDefinition Width="287*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="21*"/>
+            <RowDefinition Height="172*"/>
+            <RowDefinition Height="17*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="1" FontSize="25" Text="{Binding Info}" />
+        <ScrollViewer Grid.Column="1"  Grid.Row="1" MaxHeight="300" VerticalAlignment="Top">
+            <ItemsControl  x:Name="PictureList" ItemsSource="{Binding Goods, UpdateSourceTrigger=PropertyChanged}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <ContentControl Template="{DynamicResource Card}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <StackPanel Grid.Column="2" Grid.Row="1" Margin="5.2,4.6,4.6,5.4">
+            <TextBlock x:Name="Name" Text="Name"/>
+            <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Name="verySearch"/>
+            <TextBlock x:Name="Description" Text="Description"/>
+            <TextBox Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock x:Name="Color" Text="Color"/>
+            <TextBox Text="{Binding Color, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock x:Name="Price" Text="Price"/>
+            <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock x:Name="Picture" Text="Picture"/>
+            <Image Source="{Binding Picture, UpdateSourceTrigger=PropertyChanged}" Height="100" Width="100">
+                <Image.InputBindings>
+                    <MouseBinding Command ="{Binding AddPictureCommand}"
+                                      MouseAction="LeftClick"/>
+
+                </Image.InputBindings>
+            </Image>
+            <Button x:Name="Save"  Content="Save"  BorderBrush="White"  Margin="10" Command="{Binding SaveCommand, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button x:Name="Delete"  Content="Delete"  BorderBrush="White"  Margin="10" Command="{Binding DeleteCommand, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
